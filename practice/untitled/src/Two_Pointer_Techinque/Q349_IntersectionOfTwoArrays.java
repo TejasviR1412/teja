@@ -1,5 +1,10 @@
 package Two_Pointer_Techinque;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 public class Q349_IntersectionOfTwoArrays {
     public static void main(String[] args) {
         int[] nums1 = {1,2,2,1};
@@ -20,7 +25,20 @@ public class Q349_IntersectionOfTwoArrays {
     }
 
     public static int[] intersection(int[] nums1, int[] nums2) {
-        
-        return new int[] {};
+        List<Integer> intersectingElements = new ArrayList<>();
+        Set<Integer> set = new HashSet<>();
+
+        for(int a : nums1){
+            set.add(a);
+        }
+
+        for(int b : nums2){
+            if(set.contains(b)){
+                intersectingElements.add(b);
+                set.remove(b);
+            }
+        }
+
+        return intersectingElements.stream().mapToInt(i -> i).toArray();
     }
 }
