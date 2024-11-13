@@ -84,7 +84,7 @@ public class Q160_IntersectionOfTwoLinkedLists {
 
     /* Better Approach
     * Time Complexity = O(N+M)
-    * Space Complexity = O(1)
+    * Space Complexity = O(N)
     * */
     public ListNode getIntersectionNode_Approach2(ListNode headA, ListNode headB) {
         Set<ListNode> listNodeSet = new HashSet<>();

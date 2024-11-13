@@ -1,5 +1,11 @@
 import java.util.HashSet;
 
+/**
+ * Question : Remove Duplicates from an unsorted list.
+ * Example : 1->2->1->4->3->4->1
+ * Output should be : 1->2->4->3->1
+ */
+
 public class RemoveDuplicatesFromUnsortedLinkedList {
     public static void main(String[] args) {
         SinglyLinkedList sl1 = new SinglyLinkedList();
