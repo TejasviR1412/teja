@@ -9,7 +9,7 @@ public class Q82_RemoveDuplicatesFromSortedList_II {
         sl1.display(sl1.head);
 
         Q82_RemoveDuplicatesFromSortedList_II q82 = new Q82_RemoveDuplicatesFromSortedList_II();
-        SinglyLinkedList.ListNode node = q82.deleteDuplicates_1(sl1.head);
+        SinglyLinkedList.ListNode node = q82.deleteDuplicates(sl1.head);
         sl1.display(node);
     }
 
