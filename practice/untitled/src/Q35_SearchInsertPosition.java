@@ -18,10 +18,20 @@ public class Q35_SearchInsertPosition {
         System.out.println(searchInsert(nums4,target4));
     }
 
+    /**
+     * ceiling = smallest number in the array that is greater than or
+     *           equal to the target element --> return low
+     *
+     * floor = biggest number in the array that is smaller than or
+     *         equal to the target element --> return high
+     */
     public static int searchInsert(int[] nums, int target) {
         int low = 0;
         int high = nums.length-1;
         int mid;
+
+        /*if(target > nums[nums.length-1])
+            return -1;*/
 
         while(low <= high){
             mid = low + (high-low)/2;
