@@ -1,3 +1,5 @@
+import java.util.Stack;
+
 public class Q2000_ReversePrefixOfAWord {
     public static void main(String[] args) {
         String word1 = "abcdefd";
@@ -10,8 +12,13 @@ public class Q2000_ReversePrefixOfAWord {
         char ch3 = 'z';
 
         System.out.println(reversePrefix(word1,ch1));
+        System.out.println(reversePrefix_UsingStack(word1,ch1));
+        System.out.println("++++++++++++++++++++++++++++++++++++++++++++");
         System.out.println(reversePrefix(word2,ch2));
+        System.out.println(reversePrefix_UsingStack(word2,ch2));
+        System.out.println("++++++++++++++++++++++++++++++++++++++++++++");
         System.out.println(reversePrefix(word3,ch3));
+        System.out.println(reversePrefix_UsingStack(word3,ch3));
     }
 
     public static String reversePrefix(String word, char ch) {
@@ -23,6 +30,25 @@ public class Q2000_ReversePrefixOfAWord {
         }else{
             return word;
         }
+
+        return sb.toString();
+    }
+
+    public static String reversePrefix_UsingStack(String word, char ch) {
+        StringBuilder sb = new StringBuilder();
+        Stack<Character> stack= new Stack<>();
+
+        String stringToBeReveresed = word.substring(0, word.indexOf(ch)+1);
+
+        for(int i=0; i<stringToBeReveresed.length();i++){
+            stack.push(stringToBeReveresed.charAt(i));
+        }
+
+        while(!stack.isEmpty()){
+            sb.append(stack.pop());
+        }
+
+        sb.append(word.substring(word.indexOf(ch)+1));
 
         return sb.toString();
     }
