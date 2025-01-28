@@ -14,9 +14,13 @@ public class Q844_BackspaceStringCompare {
         System.out.println(backspaceCompare(s1,t1));
         System.out.println(backspaceCompare(s2,t2));
         System.out.println(backspaceCompare(s3,t3));
+        System.out.println("***********************");
+        System.out.println(backspaceCompare_1(s1,t1));
+        System.out.println(backspaceCompare_1(s2,t2));
+        System.out.println(backspaceCompare_1(s3,t3));
     }
 
-    public static boolean backspaceCompare(String s, String t) {
+    public static boolean backspaceCompare_1(String s, String t) {
         Stack<Character> stackS = new Stack<>();
         StringBuilder stringS = new StringBuilder();
 
@@ -48,5 +52,27 @@ public class Q844_BackspaceStringCompare {
         }
 
         return stringS.toString().contentEquals(stringT);
+    }
+
+    public static boolean backspaceCompare(String s, String t) {
+        String s1 = removeHashTag(s);
+        String s2 = removeHashTag(t);
+
+        return s1.equals(s2);
+    }
+
+    private static String removeHashTag(String s){
+        StringBuilder sb = new StringBuilder();
+        for(char c : s.toCharArray()){
+            if(c == '#'){
+                if(!sb.isEmpty()){
+                    sb.deleteCharAt(sb.length()-1);
+                }
+            }else{
+                sb.append(c);
+            }
+        }
+
+        return sb.toString();
     }
 }

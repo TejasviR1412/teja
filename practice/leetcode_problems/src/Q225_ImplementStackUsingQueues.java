@@ -1,13 +1,13 @@
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class Q255_ImplementStackUsingQueues {
+public class Q225_ImplementStackUsingQueues {
 
     private Queue<Integer> queue1;
     private Queue<Integer> queue2;
     private int top;
 
-    public Q255_ImplementStackUsingQueues() {
+    public Q225_ImplementStackUsingQueues() {
         queue1 = new LinkedList<>();
         queue2 = new LinkedList<>();
     }
