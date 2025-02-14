@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.PriorityQueue;
 
 public class Q253_MeetingRooms_II {
@@ -11,8 +12,8 @@ public class Q253_MeetingRooms_II {
     }
 
     public static int minMeetingRooms(int[][] intervals) {
-        Arrays.sort(intervals, (i1, i2) -> i1[0] - i2[0]);
-        var heap = new PriorityQueue<int[]>((i1, i2) -> i1[1] - i2[1]);
+        Arrays.sort(intervals, Comparator.comparingInt(i -> i[0]));
+        var heap = new PriorityQueue<int[]>(Comparator.comparingInt(i -> i[1]));
         for (var meeting: intervals) {
             heap.offer(meeting);
             if (heap.peek()[1] <= meeting[0]) heap.poll();
