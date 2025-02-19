@@ -8,16 +8,33 @@ public class Q253_MeetingRooms_II {
         int[][] intervals2 = {{7,10},{2,4}};
 
         System.out.println(minMeetingRooms(intervals1));
-        System.out.println(minMeetingRooms(intervals2));
+        //System.out.println(minMeetingRooms(intervals2));
     }
 
     public static int minMeetingRooms(int[][] intervals) {
-        Arrays.sort(intervals, Comparator.comparingInt(i -> i[0]));
-        var heap = new PriorityQueue<int[]>(Comparator.comparingInt(i -> i[1]));
-        for (var meeting: intervals) {
-            heap.offer(meeting);
-            if (heap.peek()[1] <= meeting[0]) heap.poll();
+        int min = 0;
+        int max = 0;
+
+        for(int[] interval : intervals){
+            min = Math.min(interval[0] , min);
+            max = Math.max(interval[1],max);
         }
-        return heap.size();
+
+        int[] meetings = new int[max + 1];
+
+        for(int[] interval : intervals){
+            meetings[interval[0]] += 1;
+            meetings[interval[1]] -= 1;
+        }
+
+        int count = 0;
+        int runningSum = 0;
+
+        for(int meeting : meetings){
+            runningSum += meeting;
+            count = Math.max(count,runningSum);
+        }
+
+        return count;
     }
 }
