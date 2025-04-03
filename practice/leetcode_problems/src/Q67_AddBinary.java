@@ -78,4 +78,24 @@ public class Q67_AddBinary {
         return x.toString(2);
 
     }
+
+    /**
+     * Simple way : Use built-in function:
+     * Convert a and b into Integers
+     * Compute the sum
+     * Convert the sum back into binary form
+     *
+     * Time Complexity : O(n + m)
+     */
+
+    /**
+     * DRAWBACK :
+     * 1. In Java, this approach is limited by the length of the input strings a and b.
+     * Once the string is long enough, the result of conversion into integers will not fit into Integer,Long or BigInteger
+     *
+     * 2.This method has quite low performance in the case of large input numbers.
+     */
+    public static String addBinary_2(String a, String b) {
+        return Integer.toBinaryString(Integer.parseInt(a,2) + Integer.parseInt(b,2));
+    }
 }

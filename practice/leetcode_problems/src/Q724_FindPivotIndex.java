@@ -10,13 +10,14 @@ public class Q724_FindPivotIndex {
     }
 
     public static int pivotIndex(int[] nums) {
-        int sum =0;
+        int sum = 0;
         int leftSum = 0;
 
-        for(int number : nums){
-            sum += number;
-        }
+        //obtain the total sum of all the elements in the array
+        for(int num : nums)
+            sum += num;
 
+        //calculate the leftsum and compare with the remaining sum
         for(int i=0;i<nums.length;i++){
             if(leftSum == (sum - leftSum - nums[i]))
                 return i;
