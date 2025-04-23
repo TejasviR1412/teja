@@ -5,6 +5,8 @@ public class Q3354_MakeArrayElementsEqualToZero {
 
         System.out.println(countValidSelections(nums1));
         System.out.println(countValidSelections(nums2));
+
+        System.out.println(-7%3);
     }
 
     public static int countValidSelections(int[] nums) {
